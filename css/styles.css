@@ -1,0 +1,90 @@
+/* ========== RESET ========== */
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+body{
+    font-size: 16px;
+}
+nav, ul{
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+a:hover{
+    opacity: 1;
+}
+/* ========== HEADER ========== */
+header{
+    width: 100%;
+    background-color: #1f2235;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 5%;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+}
+header p{
+    color: #ff4a57;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+header nav ul{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+header nav a{
+    color: white;
+}
+@media(max-width: 768px){
+    header{
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem 1.5rem;
+        gap: 0.5rem;
+    }
+    header nav ul{
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem 1.5rem;
+    }
+}
+/* ========== MAIN ========== */
+/* ========== MAIN ========== */
+/* ========== MAIN ========== */
+
+
+
+
+/* escreva a main e suas subdivisões aqui */
+
+
+
+/* ========== MAIN ========== */
+/* ========== MAIN ========== */
+/* ========== MAIN ========== */
+
+/* ========== RODAPÉ ========== */
+footer {
+    width: 100%;
+    padding: 2rem 4%;
+    text-align: center;
+    background-color: #1f2235;
+    font-size: 1rem;
+}
+
+@media(max-width: 768px){
+    footer{
+        text-align: justify;
+    }
+}
