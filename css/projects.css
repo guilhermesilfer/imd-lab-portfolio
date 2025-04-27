@@ -1,29 +1,30 @@
-.main-wrapper {
-  display: flex;
-  margin-left: 80px;
-  margin-right: 80px;
-  padding-left: 10px;
-  padding-right: 10px;
+.container {
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
 }
 
 .projetos {
   margin-top: 50px;
   margin-bottom: 50px;
-  gap: 15px;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .section-title {
   font-size: 40pt;
-  margin-right: 100%;
 }
 
 .projeto-botao {
+  justify-self: center;
+  align-self: center;
   width: 250px;
   height: 250px;
   border-style: solid;
   border-color: blue;
+  border-radius: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
