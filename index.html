@@ -1,40 +1,145 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfólio do Laboratorio do Professor Itamir.">
-  <title>Portfólio do Laboratorio do Professor Itamir.</title>
-  <link rel="stylesheet" href="css/globals.css">
-  <link rel="stylesheet" href="css/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pré-site</title>
+  <link href="css/index.css" rel="stylesheet">
+  <link href="css/globals.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
   <!--------------------HEADER-------------------->
   <header>
-    <div>
-      <p>Portfólio Laboratorio - Itamir</p>
+    <div class="acessibilidade">
+      <div class="esquerda">
+        <button class="botao-acessibilidade">- A</button>
+        <button class="botao-acessibilidade">A</button>
+        <button class="botao-acessibilidade">A +</button>
+      </div>
+      <div class="centro">
+        <input type="text" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+      </div>
+      <div class="direita">
+        <button class="botao-social">
+          <i class="fa fa-facebook"></i>
+        </button>
+        <button class="botao-social">
+          <i class="fa fa-instagram"></i>
+        </button>
+        <button class="botao-social">
+          <i class="fa fa-linkedin"></i>
+        </button>
+        <button class="botao-social">
+          <i class="fa fa-twitter"></i>
+        </button>
+        <button class="botao-social">
+          <i class="fa fa-youtube-play"></i>
+        </button>
+      </div>
+      <button class="botao-menu-acessibilidade">
+        <i class="fa fa-bars"></i>
+      </button>
     </div>
-    <nav class="menu">
-      <ul>
-        <li><a href="index.html">Institucional</a></li>
-        <li><a href="projects.html">Projetos</a></li>
-        <li><a href="">Editais</a></li>
-        <li><a href="">Contato</a></li>
-      </ul>
-    </nav>
+    <div class="principal">
+      <div class="logo">
+        <img class="img1" src="img/ufrn-logo-1.png" alt="Universidade Federal do Rio Grande do Norte">
+        <img class="img2" src="img/imd.svg" alt="Instituto Metrópole Digital.">
+      </div>
+      <button class="botao-menu">
+        <i class="fa fa-bars"></i>
+      </button>
+      <nav class="navegacao">
+        <ul>
+          <li><a href="index.html">Pagina Principal</a></li>
+          <li><a href="parceiros.html">Parceiros</a></li>
+          <li><a href="colaboradores.html">Colaboradores</a></li>
+          <li><a href="projects.html">Projetos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!--------------------MAIN-------------------->
+  <!-------------------- MAIN -------------------->
   <div class="main-wrapper">
     <main>
+      <section class="grid2">
+        <div class="lab">
+          <h2><span>Institucional:</span> Sobre o Laboratório</h2>
+          <img src="img/Metrópole Digital - UFRN.jpeg">
+          <br>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum qui aliquid doloremque distinctio iure nemo? Possimus perspiciatis harum, natus sed minima, et earum, error culpa eius voluptatem commodi tempore ad. Nulla, minus iusto totam accusamus deserunt laboriosam quae dicta! Necessitatibus perferendis quisquam repellendus omnis voluptates iste dolor alias tenetur! Sint doloremque enim quam cumque commodi? Veritatis ipsum vel nemo impedit. Velit necessitatibus maiores, illo iure atque doloribus similique laborum fugit provident deserunt commodi quam non inventore, blanditiis pariatur voluptate dolor id voluptatibus excepturi. Odit deleniti molestias corrupti iusto aperiam asperiores? Nulla eos aut doloremque porro fugit sed excepturi voluptas eveniet facere! Quasi voluptas nemo rem harum magni eum? Qui ex a aliquid mollitia tempore at labore, ab magnam, autem neque, cum omnis sed?</p>
+        </div>
+
+        <div class="sidebar">
+          <div class="top">
+            <h3>Notícias</h3>
+          </div>
+          <div>
+            <img src="img/Metrópole Digital.jpeg">
+            <p>Notícia Genérica</p>
+          </div>
+          <div>
+            <img src="img/Metrópole Digital.jpeg">
+            <p>Notícia Genérica</p>
+          </div>
+          <div>
+            <img src="img/Metrópole Digital.jpeg">
+            <p>Notícia Genérica</p>
+          </div>
+          <div>
+            <img src="img/Metrópole Digital.jpeg">
+            <p>Notícia Genérica</p>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 
   <!--------------------FOOTER-------------------->
-  <footer class="rodape">
-    <p>Footer</p>
+  <footer>
+    <div class="footer-superior">
+      <ul class="lista-footer">
+        <li class="titulo-lista">Colaboradores</li>
+        <li><a href="https://www.metropoledigital.ufrn.br/portal/institucional/equipe">Itamir Filho</a></li>
+        <li><a href="https://www.metropoledigital.ufrn.br/portal/institucional/equipe">Jean Lima</a></li>
+        <li><a href="https://www.metropoledigital.ufrn.br/portal/institucional/equipe">Guilherme Ferreira</a></li>
+        <li><a href="https://www.metropoledigital.ufrn.br/portal/institucional/equipe">Matheus Guedeso</a></li>
+        <li><a href="https://www.metropoledigital.ufrn.br/portal/institucional/equipe">Pedro Guedes</a></li>
+      </ul>
+      <ul class="lista-footer">
+        <li class="titulo-lista">Projetos</li>
+        <li><a href="project_template.html">Melhorando o mundo</a></li>
+        <li><a href="project_template.html">Futuro brilhante</a></li>
+        <li><a href="project_template.html">Computadores quantico</a></li>
+        <li><a href="project_template.html">Super pesquisa</a></li>
+        <li><a href="project_template.html">Internet das coisas</a></li>
+      </ul>
+      <ul class="lista-footer">
+        <li class="titulo-lista">Parceiros</li>
+        <li><a href="https://www.dell.com.br">Dell</a></li>
+        <li><a href="https://www.microsoft.com/pt-br">Microsoft</a></li>
+        <li><a href="https://www.samsung.com/br/">Samsung</a></li>
+        <li><a href="https://www.acer.com/br-pt">Acer</a></li>
+        <li><a href="https://www.lenovo.com/br/pt/">Lenovo</a></li>
+      </ul>
+    </div>
+    <div class="footer-inferior">
+      <div class="bloco-esquerda">
+        <p>Instituto Metrópole Digital</p>
+        <p>Endereço: CIVT - UFRN - Av. Senador Salgado Filho, 3000</p>
+        <p>Lagoa Nova, CEP 59.078.970 - Natal/RN</p>
+        <p>Recepção: (84) 3342-2216 - Ramal 100</p>
+      </div>
+      <div class="bloco-direita">
+        <p>Desenvolvido por Guilherme Ferreira, Matheus Guedes e Pedro Guedes</p>
+        <p>Copyright © 2025 | Todos os direitos reservados</p>
+      </div>
+    </div>
   </footer>
 </body>
 

@@ -1,0 +1,113 @@
+body,
+main p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: Arial;
+}
+
+main {
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+
+body {
+  background-color: #F9F9F9;
+  margin-bottom: 100px;
+}
+
+.lab h2 {
+  font-size: 22pt;
+}
+
+.lab p {
+  text-align: justify;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* grid */
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  grid-gap: 50px;
+  max-width: 1000px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.lab>h2 {
+  color: #164194;
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-decoration-color: #5b5d61;
+}
+
+.lab>h2>span {
+  color: #5b5d61;
+}
+
+.lab>p {
+  color: #5b5d61;
+  text-align: left;
+}
+
+.sidebar {
+  margin-top: 80px;
+}
+
+.sidebar>div {
+  margin-bottom: 10px;
+  border: solid #164194;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.sidebar>div>p {
+  text-align: center;
+  background-color: white;
+  color: #5b5d61;
+}
+
+.top {
+  background-color: #164194;
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 970px) {
+  .lab h2 {
+    font-size: 15pt;
+  }
+}
+
+@media (max-width: 810px) {
+  .lab h2 {
+    font-size: 11pt;
+  }
+  
+  .lab p {
+    font-size: 10pt;
+  }
+}
+
+@media (max-width: 712px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: flex;
+    overflow: scroll;
+  }
+
+  .sidebar>div {
+    flex: 1 0 200px;
+    margin: 0 10px;
+  }
+}
