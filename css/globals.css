@@ -224,6 +224,12 @@ footer{
     text-align: center;
     color: grey;
 }
+.lista-footer a{
+    color: grey;
+}
+.lista-footer a:hover{
+    color: #333;
+}
 .titulo-lista{
     color: black;
 }
