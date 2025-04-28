@@ -12,13 +12,13 @@ main {
   padding-bottom: 100px;
 }
 
-body {
-  background-color: #F9F9F9;
-  margin-bottom: 100px;
-}
-
 .lab h2 {
   font-size: 22pt;
+}
+
+.lab img {
+  border: solid #D3D3D3;
+  border-radius: 10px;
 }
 
 .lab p {
@@ -42,19 +42,14 @@ img {
 }
 
 .lab>h2 {
-  color: #164194;
-  text-decoration: underline;
-  text-decoration-thickness: 4px;
-  text-decoration-color: #5b5d61;
-}
-
-.lab>h2>span {
-  color: #5b5d61;
+  font-size: 2.5em;
+  color: #333333;
+  padding-bottom: 30px;
 }
 
 .lab>p {
   color: #5b5d61;
-  text-align: left;
+  text-align: justify;
 }
 
 .sidebar {
@@ -66,12 +61,6 @@ img {
   border: solid #164194;
   border-radius: 20px;
   overflow: hidden;
-}
-
-.sidebar>div>p {
-  text-align: center;
-  background-color: white;
-  color: #5b5d61;
 }
 
 .top {
@@ -90,7 +79,7 @@ img {
   .lab h2 {
     font-size: 11pt;
   }
-  
+
   .lab p {
     font-size: 10pt;
   }
