@@ -1,0 +1,243 @@
+/* ========== RESET ========== */
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+body{
+    font-size: 16px;
+}
+
+nav, ul{
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+a:hover{
+    opacity: 1;
+}
+
+li {
+  white-space: nowrap;
+}
+
+/* ========== HEADER ========== */
+header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.acessibilidade{
+    width: 100%;
+    height: 40px;
+    background-color: lightgray;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+}
+.esquerda{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.botao-acessibilidade {
+    background: none; 
+    color: white; 
+    border: none; 
+    padding: 0; 
+    cursor: pointer; 
+    font-size: 1em;
+}
+.botao-acessibilidade:focus {
+    outline: none;
+}
+.centro{
+    display: flex;
+    align-items: center;    
+}
+.centro input[type="text"]{
+    padding: 5px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    color: black;
+    font-size: 80%;
+}
+.centro button[type="submit"]{
+    padding: 5px 10px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #ddd;
+    color: grey;
+    cursor: pointer;
+    font-size: 80%;
+}
+.direita{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.botao-social {
+    background: none; 
+    border: none; 
+    padding: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+}
+.botao-social:focus {
+    outline: none;
+}
+.botao-social:focus {
+    outline: none; 
+}
+.principal{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 0 10%;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.logo img{
+    height: 70%;
+    object-fit: contain;
+}
+.logo .img1{
+    padding-right: 10px;
+    border-right: 1px solid grey;
+}
+.logo .img2{
+    padding-left: 10px;
+    border-left: 1px solid grey;
+}
+.botao-menu-acessibilidade {
+    background: none;
+    border: none;
+    color: white; 
+    font-size: 24px;
+    cursor: pointer;
+    display: none; 
+}
+.botao-menu-acessibilidade:focus {
+    outline: none;
+}
+.botao-menu {
+    background: none;
+    border: none;
+    color: grey; 
+    font-size: 24px; 
+    cursor: pointer;
+    display: none;
+}
+.botao-menu:focus {
+    outline: none;
+}
+.navegacao ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    font-size: 80%;
+}
+.navegacao a{
+    text-decoration: none;
+    color: grey;
+}
+
+@media(max-width: 768px){
+    .navegacao {
+        display: none;
+    }
+    .botao-menu {
+        display: block;
+    }
+    .direita {
+        display: none; 
+    }
+    .botao-menu-acessibilidade {
+        display: block;
+    }
+    .acessibilidade {
+        justify-content: space-between; 
+    }
+}
+/* ========== FOOTER ========== */
+footer{
+    text-align: center;
+    width: 100%;
+    font-size: 80%;
+}
+.footer-superior {
+    background-color: white;
+    padding: 20px 10%;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -0.125rem 0.25rem rgba(0,0,0,0.1);
+}
+.lista-footer {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    color: grey;
+}
+.titulo-lista{
+    color: black;
+}
+.footer-inferior {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-height: 160px;
+    padding: 5% 10%;
+    background-color: lightgray;
+    color: white;
+}
+.bloco-esquerda {
+    text-align: left;
+} 
+.bloco-direita {
+    text-align: right;
+}
+
+@media(max-width: 768px){
+    .footer-inferior{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .bloco-esquerda{
+        text-align: center;
+    }
+    .bloco-direita{
+        text-align: center;
+    }
+}
