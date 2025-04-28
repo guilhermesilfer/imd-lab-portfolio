@@ -1,0 +1,99 @@
+.secao-formulario{
+    padding: 40px;
+    display: flex; 
+    gap: 40px; 
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+.area-esquerda {
+    text-align: left;
+}
+.area-esquerda h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+.area-esquerda .subtitulo-formulario {
+    color: grey;
+    margin-bottom: 20px;
+}
+.area-esquerda .info-contato p {
+    margin-bottom: 10px;
+}
+.area-esquerda .info-contato a {
+    color: blue;
+    text-decoration: none;
+}
+.area-esquerda .info-contato a:hover {
+    text-decoration: underline;
+} 
+.area-direita {
+    flex-grow: 1;
+}
+.area-direita form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.area-direita .campo {
+    display: flex;
+    flex-direction: column;
+}
+.area-direita .campo label {
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+.area-direita .campo input[type="text"],  .area-direita .campo input[type="email"],  .area-direita .campo input[type="tel"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+.area-direita .campo-mensagem {
+    grid-column: 1 / -1;
+}
+.area-direita .campo-mensagem textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    resize: vertical;
+    width: 100%;
+    min-height: 200px;
+}
+.area-direita .botao-enviar {
+    grid-column: 1 / -1;
+    background-color: grey;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    align-self: flex-end;
+}
+.area-direita .botao-enviar:hover {
+    background-color: #333;
+}
+@media (max-width: 768px) {
+    .secao-formulario {
+        flex-direction: column;
+      }
+    .area-esquerda {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .area-direita {
+        width: 100%;
+    }
+    .area-direita form {
+      grid-template-columns: 1fr; 
+    }
+    .area-direita .botao-enviar {
+      grid-column: 1 / -1; 
+    }
+}
