@@ -63,12 +63,6 @@ img {
   overflow: hidden;
 }
 
-.sidebar>div>p {
-  text-align: center;
-  background-color: white;
-  color: #5b5d61;
-}
-
 .top {
   background-color: #164194;
   color: white;
