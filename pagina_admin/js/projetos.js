@@ -145,14 +145,14 @@
             itemDiv.dataset.parceirosAtribuidos = JSON.stringify(projetoData.parceirosAtribuidos || []);
 
             const summaryDiv = document.createElement('div');
-            summaryDiv.classList.add('projeto-summary', 'card-header', 'bg-light', 'd-flex', 'justify-content-between', 'align-items-center');
+            summaryDiv.classList.add('projeto-summary', 'card-header', 'bg-light');
             
             const tituloSpan = document.createElement('span');
-            tituloSpan.classList.add('projeto-titulo-display', 'h6', 'mb-0');
+            tituloSpan.classList.add('projeto-titulo-display', 'h6', 'd-block', 'mb-2');
             tituloSpan.textContent = projetoData.projetoTitulo;
 
             const actionsDiv = document.createElement('div');
-            actionsDiv.classList.add('projeto-item-actions');
+            actionsDiv.classList.add('projeto-item-actions', 'text-right', 'mt-1');
 
             const expandButton = document.createElement('button');
             expandButton.type = 'button';
@@ -161,17 +161,18 @@
 
             const editButton = document.createElement('button');
             editButton.type = 'button';
-            editButton.classList.add('btn', 'btn-sm', 'btn-outline-warning', 'btn-editar-projeto');
+            editButton.classList.add('btn', 'btn-sm', 'btn-outline-warning', 'btn-editar-projeto', 'ml-1');
             editButton.innerHTML = '<i class="fas fa-edit"></i> Editar';
 
             const deleteButton = document.createElement('button');
             deleteButton.type = 'button';
-            deleteButton.classList.add('btn', 'btn-sm', 'btn-outline-danger', 'btn-excluir-projeto');
+            deleteButton.classList.add('btn', 'btn-sm', 'btn-outline-danger', 'btn-excluir-projeto', 'ml-1');
             deleteButton.innerHTML = '<i class="fas fa-trash"></i> Excluir';
             
             actionsDiv.appendChild(expandButton);
             actionsDiv.appendChild(editButton);
             actionsDiv.appendChild(deleteButton);
+            
             summaryDiv.appendChild(tituloSpan);
             summaryDiv.appendChild(actionsDiv);
             itemDiv.appendChild(summaryDiv);

@@ -38,7 +38,6 @@
             
             const imagemParaEsteColaborador = colabData.imagemRealEspecifica || imagemDefaultReal;
 
-
             itemDiv.dataset.id = colabData.id || Date.now().toString();
             itemDiv.dataset.nome = colabData.colabNome || '';
             itemDiv.dataset.cargo = colabData.colabCargo || '';
@@ -50,28 +49,34 @@
             itemDiv.dataset.descricao = colabData.colabDescricao || '';
 
             const summaryDiv = document.createElement('div');
-            summaryDiv.classList.add('colaborador-summary', 'card-header', 'bg-light', 'd-flex', 'justify-content-between', 'align-items-center');
+            summaryDiv.classList.add('colaborador-summary', 'card-header', 'bg-light'); 
+
             const nomeSpan = document.createElement('span');
-            nomeSpan.classList.add('colaborador-nome-display', 'h6', 'mb-0');
+            nomeSpan.classList.add('colaborador-nome-display', 'h6', 'd-block', 'mb-2'); 
             nomeSpan.textContent = colabData.colabNome;
+            
             const actionsDiv = document.createElement('div');
-            actionsDiv.classList.add('colaborador-item-actions');
+            actionsDiv.classList.add('colaborador-item-actions', 'text-right', 'mt-1'); 
+
             const expandButton = document.createElement('button');
             expandButton.type = 'button';
             expandButton.classList.add('btn', 'btn-sm', 'btn-outline-secondary', 'btn-expandir-colab');
-            expandButton.innerHTML = '<i class="fas fa-chevron-down"></i> Expandir';
+            expandButton.innerHTML = '<i class="fas fa-chevron-down"></i> Detalhes';
+            
             const editButton = document.createElement('button');
             editButton.type = 'button';
-            editButton.classList.add('btn', 'btn-sm', 'btn-outline-warning', 'btn-editar-colab');
+            editButton.classList.add('btn', 'btn-sm', 'btn-outline-warning', 'btn-editar-colab', 'ml-1');
             editButton.innerHTML = '<i class="fas fa-edit"></i> Editar';
+            
             const deleteButton = document.createElement('button');
             deleteButton.type = 'button';
-            deleteButton.classList.add('btn', 'btn-sm', 'btn-outline-danger', 'btn-excluir-colab');
+            deleteButton.classList.add('btn', 'btn-sm', 'btn-outline-danger', 'btn-excluir-colab', 'ml-1');
             deleteButton.innerHTML = '<i class="fas fa-trash"></i> Excluir';
             
             actionsDiv.appendChild(expandButton);
             actionsDiv.appendChild(editButton);
             actionsDiv.appendChild(deleteButton);
+            
             summaryDiv.appendChild(nomeSpan);
             summaryDiv.appendChild(actionsDiv);
             itemDiv.appendChild(summaryDiv);
@@ -230,7 +235,7 @@
                     const detailsDiv = colaboradorItem.querySelector('.colaborador-details');
                     if (detailsDiv) {
                         const isHidden = detailsDiv.classList.toggle('hidden');
-                        targetButton.innerHTML = isHidden ? '<i class="fas fa-chevron-down"></i> Expandir' : '<i class="fas fa-chevron-up"></i> Ocultar';
+                        targetButton.innerHTML = isHidden ? '<i class="fas fa-chevron-down"></i> Detalhes' : '<i class="fas fa-chevron-up"></i> Ocultar';
                         colaboradorItem.classList.toggle('details-visible'); 
                     }
                 }

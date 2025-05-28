@@ -97,14 +97,14 @@
             itemDiv.dataset.legendaImagem = noticiaData.noticiaLegendaImagem || '';
 
             const summaryDiv = document.createElement('div');
-            summaryDiv.classList.add('noticia-summary', 'card-header', 'bg-light', 'd-flex', 'justify-content-between', 'align-items-center');
+            summaryDiv.classList.add('noticia-summary', 'card-header', 'bg-light');
             
             const nomeSpan = document.createElement('span');
-            nomeSpan.classList.add('noticia-nome-display', 'h6', 'mb-0');
+            nomeSpan.classList.add('noticia-nome-display', 'h6', 'd-block', 'mb-2');
             nomeSpan.textContent = noticiaData.noticiaNome;
 
             const actionsDiv = document.createElement('div');
-            actionsDiv.classList.add('noticia-item-actions');
+            actionsDiv.classList.add('noticia-item-actions', 'text-right', 'mt-1');
 
             const expandButton = document.createElement('button');
             expandButton.type = 'button';
@@ -113,17 +113,18 @@
 
             const editButton = document.createElement('button');
             editButton.type = 'button';
-            editButton.classList.add('btn', 'btn-sm', 'btn-outline-warning', 'btn-editar-noticia');
+            editButton.classList.add('btn', 'btn-sm', 'btn-outline-warning', 'btn-editar-noticia', 'ml-1');
             editButton.innerHTML = '<i class="fas fa-edit"></i> Editar';
 
             const deleteButton = document.createElement('button');
             deleteButton.type = 'button';
-            deleteButton.classList.add('btn', 'btn-sm', 'btn-outline-danger', 'btn-excluir-noticia');
+            deleteButton.classList.add('btn', 'btn-sm', 'btn-outline-danger', 'btn-excluir-noticia', 'ml-1');
             deleteButton.innerHTML = '<i class="fas fa-trash"></i> Excluir';
             
             actionsDiv.appendChild(expandButton);
             actionsDiv.appendChild(editButton);
             actionsDiv.appendChild(deleteButton);
+
             summaryDiv.appendChild(nomeSpan);
             summaryDiv.appendChild(actionsDiv);
             itemDiv.appendChild(summaryDiv);
