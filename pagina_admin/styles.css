@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background-color: #f8f9fa; 
+    min-height: 100vh;
+    line-height: 1.6;
+    color: #212529;
+}
+
+#login-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+#login-modal-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#login-modal {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.3rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.175) !important;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+#login-modal h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+    font-weight: 500;
+}
+
+#login-form label {
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+#login-form .login-error-message {
+    color: #dc3545;
+    margin-bottom: 1rem;
+    font-size: 0.875em;
+    min-height: 1.2em;
+}
+#login-form .forgot-password {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: right;
+    font-size: 0.875em;
+}
+
+#principal .sticky-sidebar {
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 1.5rem; 
+}
+
+#profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid #007bff;
+    background-color: #e9ecef;
+}
+
+#person-name {
+    font-weight: 500;
+    color: #343a40;
+}
+
+#main-menu .nav-link {
+    color: #495057;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.25rem;
+    text-align: left;
+    font-weight: 500;
+    border-radius: 0.25rem;
+}
+#main-menu .nav-link i {
+    width: 20px;
+    text-align: center;
+    margin-right: 0.75rem;
+}
+#main-menu .nav-link.active {
+    background-color: #007bff !important;
+    color: white !important;
+}
+#main-menu .nav-link:not(.active):hover {
+    background-color: #e9ecef;
+    color: #0056b3;
+}
+
+.content-section {
+    display: none;
+    opacity: 0;
+    min-height: calc(100vh - 3rem - 70px); 
+    transform: translateX(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    background-color: #ffffff; 
+    padding: 1.5rem; 
+    border-radius: 0.25rem; 
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075); 
+}
+.content-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+.content-section h2.h4 { 
+    color: #343a40;
+    font-weight: 500;
+}
+
+body.initial-view .row-main-layout {
+    justify-content: center;
+}
+body.initial-view #conteudo-dinamico {
+    display: none !important;
+}
+
+.dynamic-form {
+    background-color: #f8f9fa;
+}
+.dynamic-form h3 { 
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+.dynamic-form label {
+    font-size: 0.875rem;
+    color: #495057;
+}
+
+#projetoColaboradoresSelecao .list-group-item {
+    cursor: pointer; 
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+#projetoColaboradoresSelecao .list-group-item:hover {
+    background-color: #f0f2f5; 
+}
+#projetoColaboradoresSelecao input[type="checkbox"] {
+    margin-top: 0.1rem; 
+}
+
+.colaborador-item, .parceiro-item, .projeto-item {
+    transition: box-shadow 0.2s ease-in-out;
+}
+.colaborador-item:hover, .parceiro-item:hover, .projeto-item:hover {
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+}
+
+.colaborador-summary, .parceiro-summary, .projeto-summary {
+    padding: 0.75rem 1rem;
+}
+
+.colaborador-nome-display, .parceiro-nome-display, .projeto-titulo-display {
+    color: #0056b3;
+    flex-grow: 1;
+    margin-right: 1rem;
+}
+
+.colaborador-item-actions .btn, 
+.parceiro-item-actions .btn,
+.projeto-item-actions .btn {
+    font-weight: 500;
+    padding: 0.25rem 0.6rem;
+}
+.colaborador-item-actions .btn i,
+.parceiro-item-actions .btn i,
+.projeto-item-actions .btn i {
+    margin-right: 0.3rem;
+}
+
+.colaborador-details, .parceiro-details, .projeto-details {
+    font-size: 0.9rem;
+}
+.colaborador-details.hidden, .parceiro-details.hidden, .projeto-details.hidden {
+    display: none;
+}
+
+.colaborador-details h5 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.colaborador-details .colaborador-imagem-display {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+.colaborador-details hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.colaborador-details .social-links .btn {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+}
+.colaborador-details .social-links .btn i {
+    margin-right: 0.3rem;
+}
+
+.parceiro-details h6, .projeto-details h6 { 
+    font-size: 1.1rem; 
+    font-weight: 500;
+}
+.parceiro-details a, .projeto-details a { 
+    word-break: break-all;
+}
+
+.hidden {
+    display: none !important;
+}
