@@ -9,75 +9,13 @@
   <link rel="stylesheet" href="css/globals.css">
   <link rel="stylesheet" href="css/parceiros.css">
   <link rel="stylesheet" href="header/header.css">
-  <link rel="stylesheet" href="footer/footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="header/dropdown.js" defer></script>
-
+  <link rel="stylesheet" href="../header/header.css">
+  <link rel="stylesheet" href="footer/footer.css">
+  <script src="../header/header_loader.js" defer></script>
   <head>
 
   <body>
-    <!--------------------HEADER-------------------->
-    <header>
-      <div class="acessibilidade">
-        <div class="centro">
-          <input type="text" placeholder="Buscar...">
-          <button type="submit">Buscar</button>
-        </div>
-        <div class="direita">
-          <button class="botao-social">
-            <i class="fa fa-facebook"></i>
-          </button>
-          <button class="botao-social">
-            <i class="fa fa-instagram"></i>
-          </button>
-          <button class="botao-social">
-            <i class="fa fa-linkedin"></i>
-          </button>
-          <button class="botao-social">
-            <i class="fa fa-twitter"></i>
-          </button>
-          <button class="botao-social">
-            <i class="fa fa-youtube-play"></i>
-          </button>
-        </div>
-      </div>
-      <div class="principal">
-        <div class="logo">
-          <img class="img1" src="img/ufrn-logo-1.png" alt="Universidade Federal do Rio Grande do Norte">
-          <img class="img2" src="img/imd.svg" alt="Instituto Metrópole Digital.">
-        </div>
-        <button class="botao-menu">
-          <i class="fa fa-bars"></i>
-        </button>
-        <nav class="navegacao">
-          <ul>
-
-            <li class="dropdown">
-              <button class="dropdown-toggle">Institucional ▾</button>
-              <ul class="submenu">
-                <li><a href="index/index.html">Sobre o Laboratório</a></li>
-                <li><a href="parceiros.html">Parceiros</a></li>
-                <li><a href="colaboradores.html">Colaboradores</a></li>
-              </ul>
-            </li>
-
-            <li class="dropdown">
-              <button class="dropdown-toggle">Projetos ▾</button>
-              <ul class="submenu">
-                <li><a href="#">Projeto A</a></li>
-                <li><a href="#">Projeto B</a></li>
-                <li><a href="#">Projeto C</a></li>
-              </ul>
-            </li>
-
-            <li><a href="noticias/noticias.html">Notícias</a></li>
-          </ul>
-        </nav>
-      </div>
-
-    </header>
-
-
     <!--------------------MAIN-------------------->
     <div class="main-wrapper">
       <main>
@@ -161,59 +99,8 @@
         </section>
       </main>
     </div>
-
-    <!--------------------FOOTER-------------------->
-    <footer>
-      <div class="footer-main-section">
-        <ul class="footer-links-list">
-          <li class="list-title">Colaboradores</li>
-          <li>Itamir Filho</li>
-          <li>Jean Lima</li>
-          <li>Guilherme Ferreira</li>
-          <li>Matheus Guedes</li>
-          <li>Pedro Guedes</li>
-        </ul>
-        <ul class="footer-links-list">
-          <li class="list-title">Projetos</li>
-          <li><a href="#projeto-melhorando-o-mundo">Melhorando o mundo</a></li>
-          <li><a href="#projeto-futuro-brilhante">Futuro brilhante</a></li>
-          <li><a href="#projeto-computadores-quantico">Computadores quânticos</a></li>
-          <li><a href="#projeto-super-pesquisa">Super pesquisa</a></li>
-          <li><a href="#projeto-internet-das-coisas">Internet das coisas</a></li>
-        </ul>
-        <ul class="footer-links-list">
-          <li class="list-title">Parceiros</li>
-          <li><a href="#parceiro-dell">Dell</a></li>
-          <li><a href="#parceiro-microsoft">Microsoft</a></li>
-          <li><a href="#parceiro-samsung">Samsung</a></li>
-          <li><a href="#parceiro-acer">Acer</a></li>
-          <li><a href="#parceiro-lg">LG</a></li>
-        </ul>
-
-        <div class="footer-contact-block">
-          <h3 class="list-title">Contato</h3>
-          <p class="contact-info-item">Email: <a href="mailto:contato@seuexemplo.com.br">contato@exemplo.com.br</a></p>
-          <p class="contact-info-item">Telefone: <a href="tel:+558433422216">(84) 3342-2216</a></p>
-          <p class="contact-info-item">Ramal: 100</p>
-          <p class="contact-emphasis-text">Fale Conosco!</p>
-        </div>
-      </div>
-      <div class="footer-bottom-bar">
-        <div class="bloco-esquerda">
-          <p>Instituto Metrópole Digital</p>
-          <p>Endereço: CIVT - UFRN - Av. Senador Salgado Filho, 3000</p>
-          <p>Lagoa Nova, CEP 59.078.970 - Natal/RN</p>
-        </div>
-        <div class="bloco-meio">
-          <a href="/login" class="login-button">Login de Administradores</a>
-        </div>
-        <div class="bloco-direita">
-          <p>Desenvolvido por Guilherme Ferreira, Matheus Guedes e Pedro Guedes</p>
-          <p>Copyright © 2025 | Todos os direitos reservados</p>
-        </div>
-      </div>
-    </footer>
-
+    <div id="footer-container"></div>
+    <script src="footer/footer_loader.js"></script>
   </body>
 
 </head>
