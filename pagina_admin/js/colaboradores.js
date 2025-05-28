@@ -1,7 +1,8 @@
+// js/colaboradores.js
 (function() {
     document.addEventListener('DOMContentLoaded', function() {
         const secaoColaboradores = document.getElementById('secaoColaboradores');
-        if (!secaoColaboradores) return; 
+        if (!secaoColaboradores) return;
 
         const btnNovoColaborador = document.getElementById('btnNovoColaborador');
         const formNovoColaborador = document.getElementById('formNovoColaborador');
@@ -14,7 +15,7 @@
         let currentEditingColaboradorId = null;
         const originalFormTitle = formColabTitle.textContent;
         const originalSubmitButtonText = formColabSubmitButton.textContent;
-        const imagemDefaultReal = 'img/JEAN_IMD_PERFIL.jpg';
+        const imagemDefaultReal = 'img/JEAN_IMD_PERFIL.jpg'; // Você pode alterar para um placeholder genérico se preferir
 
         function updateColabPlaceholderVisibility() { 
             if (listaColaboradoresContainer && placeholderMsgColab) {
@@ -35,7 +36,15 @@
         function createCollaboratorElement(colabData) {
             const itemDiv = document.createElement('div');
             itemDiv.classList.add('colaborador-item', 'card', 'mb-3');
+            
+            // Se colabData.imagemRealEspecifica existir (vindo dos dados iniciais), usa ela.
+            // Senão, se o usuário forneceu uma colabImagem (referência), tenta usar 'img/' + colabData.colabImagem.
+            // Se nada disso, usa imagemDefaultReal.
+            // IMPORTANTE: Esta lógica para imagemReal pode precisar de ajuste se colabImagem não for um nome de arquivo direto.
+            // Por agora, vamos simplificar: se há imagemRealEspecifica, usa. Senão, default.
+            // A referência de imagem textual do formulário (colabData.colabImagem) é mais para informação.
             const imagemParaEsteColaborador = colabData.imagemRealEspecifica || imagemDefaultReal;
+
 
             itemDiv.dataset.id = colabData.id || Date.now().toString();
             itemDiv.dataset.nome = colabData.colabNome || '';
@@ -43,8 +52,8 @@
             itemDiv.dataset.formacao = colabData.colabFormacao || '';
             itemDiv.dataset.linkedin = colabData.colabLinkedin || '';
             itemDiv.dataset.email = colabData.colabEmail || '';
-            itemDiv.dataset.imagemSolicitada = colabData.colabImagem || '';
-            itemDiv.dataset.imagemReal = imagemParaEsteColaborador;
+            itemDiv.dataset.imagemSolicitada = colabData.colabImagem || ''; // O que foi digitado no form
+            itemDiv.dataset.imagemReal = imagemParaEsteColaborador; // O que será exibido
             itemDiv.dataset.descricao = colabData.colabDescricao || '';
 
             const summaryDiv = document.createElement('div');
@@ -79,12 +88,12 @@
             const nomeColab = colabData.colabNome || 'N/A';
             const cargoColab = colabData.colabCargo || 'N/A';
             const formacaoColab = colabData.colabFormacao || 'N/A';
-            const linkedinHref = formatLink(colabData.colabLinkedin);
+            const linkedinHref = formatLink(colabData.colabLinkedin); // utils.js
             const linkedinLinkHTML = linkedinHref ? `<a href="${linkedinHref}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm mr-2"><i class="fab fa-linkedin"></i> LinkedIn</a>` : '';
             const emailColab = colabData.colabEmail || '';
             const emailLinkHTML = emailColab ? `<a href="mailto:${emailColab}" class="btn btn-outline-secondary btn-sm"><i class="fas fa-envelope"></i> Email</a>` : '';
-            const refImgColab = colabData.colabImagem || 'N/A';
-            const imgSrc = itemDiv.dataset.imagemReal;
+            const refImgColab = colabData.colabImagem || 'N/A'; // O que foi digitado no form
+            const imgSrc = itemDiv.dataset.imagemReal; // O que efetivamente será mostrado
             const descColab = colabData.colabDescricao ? colabData.colabDescricao.replace(/\n/g, '<br>') : 'N/A';
 
             detailsDiv.innerHTML = `
@@ -150,9 +159,16 @@
                 let dadosColaborador = {};
                 formData.forEach((value, key) => { dadosColaborador[key] = value; });
 
+                // Validação dos campos obrigatórios
                 if (!dadosColaborador.colabNome || dadosColaborador.colabNome.trim() === "") {
                     alert('O nome do colaborador não pode estar vazio.');
                     formNovoColaborador.querySelector('#colabNome').focus();
+                    return;
+                }
+                // MODIFICAÇÃO: Adicionada validação para o cargo
+                if (!dadosColaborador.colabCargo || dadosColaborador.colabCargo.trim() === "") {
+                    alert('O cargo do colaborador não pode estar vazio.');
+                    formNovoColaborador.querySelector('#colabCargo').focus();
                     return;
                 }
 
@@ -166,27 +182,24 @@
                         itemToUpdate.dataset.email = dadosColaborador.colabEmail;
                         itemToUpdate.dataset.imagemSolicitada = dadosColaborador.colabImagem;
                         itemToUpdate.dataset.descricao = dadosColaborador.colabDescricao;
+                        // imagemReal não é alterada via formulário diretamente aqui, é mais para dados iniciais ou lógica futura
+                        
                         itemToUpdate.querySelector('.colaborador-nome-display').textContent = dadosColaborador.colabNome;
-                        const detailsDiv = itemToUpdate.querySelector('.colaborador-details');
-                        if (detailsDiv) {
-                            const nomeColab = dadosColaborador.colabNome || 'N/A';
-                            const cargoColab = dadosColaborador.colabCargo || 'N/A';
-                            const formacaoColab = dadosColaborador.colabFormacao || 'N/A';
-                            const linkedinHref = formatLink(dadosColaborador.colabLinkedin);
-                            const linkedinLinkHTML = linkedinHref ? `<a href="${linkedinHref}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm mr-2"><i class="fab fa-linkedin"></i> LinkedIn</a>` : '';
-                            const emailColab = dadosColaborador.colabEmail || '';
-                            const emailLinkHTML = emailColab ? `<a href="mailto:${emailColab}" class="btn btn-outline-secondary btn-sm"><i class="fas fa-envelope"></i> Email</a>` : '';
-                            const refImgColab = dadosColaborador.colabImagem || 'N/A';
-                            const imgSrc = itemToUpdate.dataset.imagemReal;
-                            const descColab = dadosColaborador.colabDescricao ? dadosColaborador.colabDescricao.replace(/\n/g, '<br>') : 'N/A';
-                            detailsDiv.innerHTML = `
-                                <div class="row"> <div class="col-md-3 text-center text-md-left mb-3 mb-md-0"> <img src="${imgSrc}" alt="${nomeColab}" class="colaborador-imagem-display img-fluid rounded-circle"> </div> <div class="col-md-9"> <h5 class="font-weight-bold text-primary">${nomeColab}</h5> <p class="text-muted mb-1">${cargoColab}</p> <p class="text-muted mb-2">${formacaoColab}</p> <div class="social-links"> ${linkedinLinkHTML} ${emailLinkHTML} </div> </div> </div> <hr> <p class="small text-muted">Referência de Imagem Fornecida: ${refImgColab}</p> <h6 class="mt-3">Sobre:</h6> <p>${descColab}</p>
-                            `;
-                        }
+                        
+                        // Recria os detalhes para refletir todas as mudanças
+                        const newColabDataFromDataset = { ...itemToUpdate.dataset }; // Pega todos os datasets
+                        newColabDataFromDataset.colabNome = itemToUpdate.dataset.nome; // Garante que está usando o nome do dataset
+                        
+                        const newDetailsContent = createCollaboratorElement(newColabDataFromDataset).querySelector('.colaborador-details').innerHTML;
+                        const detailsDivTarget = itemToUpdate.querySelector('.colaborador-details');
+                        if(detailsDivTarget) detailsDivTarget.innerHTML = newDetailsContent;
+
                         alert('Colaborador "' + dadosColaborador.colabNome + '" atualizado!');
                     }
                 } else {
                     dadosColaborador.id = Date.now().toString();
+                    // Para novos colaboradores, imagemReal será o default, a menos que uma lógica mais complexa seja adicionada
+                    // para buscar imagemRealEspecifica baseada na imagemSolicitada, o que não é o caso agora.
                     const novoColaboradorElement = createCollaboratorElement(dadosColaborador);
                     listaColaboradoresContainer.appendChild(novoColaboradorElement);
                     alert('Colaborador "' + dadosColaborador.colabNome + '" salvo e adicionado à lista!');
@@ -217,6 +230,7 @@
                     formNovoColaborador.querySelector('#colabEmail').value = colaboradorItem.dataset.email;
                     formNovoColaborador.querySelector('#colabImagem').value = colaboradorItem.dataset.imagemSolicitada;
                     formNovoColaborador.querySelector('#colabDescricao').value = colaboradorItem.dataset.descricao;
+                    
                     currentEditingColaboradorId = colaboradorItem.dataset.id;
                     formColabTitle.textContent = 'Editar Colaborador';
                     formColabSubmitButton.textContent = 'Atualizar Colaborador';
@@ -230,7 +244,7 @@
                     if (detailsDiv) {
                         const isHidden = detailsDiv.classList.toggle('hidden');
                         targetButton.innerHTML = isHidden ? '<i class="fas fa-chevron-down"></i> Expandir' : '<i class="fas fa-chevron-up"></i> Ocultar';
-                        colaboradorItem.classList.toggle('details-visible');
+                        colaboradorItem.classList.toggle('details-visible'); // details-visible não está no CSS, mas pode ser útil
                     }
                 }
             });
