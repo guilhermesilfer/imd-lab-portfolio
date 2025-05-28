@@ -43,7 +43,7 @@
                             <li class="nav-item"><a href="#" class="nav-link" data-section="secaoNoticias"><i class="fas fa-newspaper mr-2"></i>Noticias</a></li>
                             <li class="nav-item"><a href="#" class="nav-link" data-section="secaoParceiros"><i class="fas fa-handshake mr-2"></i>Parceiros</a></li>
                             <li class="nav-item"><a href="#" class="nav-link" data-section="secaoProjetos"><i class="fas fa-project-diagram mr-2"></i>Projetos</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link" data-section="secaoSite"><i class="fas fa-globe mr-2"></i>Site</a></li>
+                            <li class="nav-item"><a href="../index.html" class="nav-link special-action-link" target="_blank"><i class="fas fa-globe mr-2"></i>Site</a></li>
                             <li class="nav-item mt-3"><a href="#" id="logout-button" class="nav-link special-action-link btn btn-danger btn-sm text-white w-100"><i class="fas fa-sign-out-alt mr-2"></i>Sair</a></li>
                         </ul>
                     </nav>
@@ -58,7 +58,6 @@
                             <i class="fas fa-plus mr-1"></i> Novo Colaborador
                         </button>
                     </div>
-
                     <form id="formNovoColaborador" class="dynamic-form hidden card card-body mb-4 p-3">
                         <h3 class="h5 mb-3">Cadastrar Novo Colaborador</h3>
                         <div class="form-row">
@@ -94,21 +93,61 @@
                             <textarea class="form-control form-control-sm" id="colabDescricao" name="colabDescricao" rows="3"></textarea>
                         </div>
                         <div class="form-actions text-right border-top pt-3 mt-1">
-                            <button type="button" id="btnCancelarColaborador" class="btn btn-secondary btn-sm mr-2">Cancelar</button>
-                            <button type="submit" class="btn btn-primary btn-sm">Salvar Colaborador</button>
+                            <button type="submit" class="btn btn-primary btn-sm mr-2">Salvar Colaborador</button>
+                            <button type="button" id="btnCancelarColaborador" class="btn btn-secondary btn-sm">Cancelar</button>
                         </div>
                     </form>
-
                     <div class="list-container">
                         <p id="colaboradoresPlaceholderMsg" class="placeholder-msg text-muted text-center p-3" style="display: block;">Nenhum colaborador cadastrado ainda.</p>
-                        <div id="listaColaboradoresItens">
-                            </div>
+                        <div id="listaColaboradoresItens"></div>
                     </div>
                 </section>
 
                 <section id="secaoNoticias" class="content-section">
-                    <h2 class="h4">Noticias</h2>
-                    <p>Conteúdo da seção Noticias...</p>
+                    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+                        <h2 class="h4 mb-0">Notícias</h2>
+                        <button type="button" id="btnNovaNoticia" class="btn btn-success btn-sm">
+                            <i class="fas fa-plus mr-1"></i> Nova Notícia
+                        </button>
+                    </div>
+                    <form id="formNovaNoticia" class="dynamic-form hidden card card-body mb-4 p-3">
+                        <h3 class="h5 mb-3">Cadastrar Nova Notícia</h3>
+                        <div class="form-group">
+                            <label for="noticiaNome">Nome da Notícia:</label>
+                            <input type="text" class="form-control form-control-sm" id="noticiaNome" name="noticiaNome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="noticiaData">Data da Notícia:</label>
+                            <input type="date" class="form-control form-control-sm" id="noticiaData" name="noticiaData" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="noticiaDescricao">Descrição da Notícia:</label>
+                            <textarea class="form-control form-control-sm" id="noticiaDescricao" name="noticiaDescricao" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="noticiaProjetoVinculado">Projeto Vinculado:</label>
+                            <select class="form-control form-control-sm" id="noticiaProjetoVinculado" name="noticiaProjetoVinculado" required>
+                                <option value="">Selecione um projeto</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="noticiaImagemRef">Referência da Imagem (Texto):</label>
+                            <input type="text" class="form-control form-control-sm" id="noticiaImagemRef" name="noticiaImagemRef" placeholder="Ex: nome_da_imagem.jpg">
+                        </div>
+                         <div class="form-group">
+                            <label for="noticiaLegendaImagem">Legenda da Imagem:</label>
+                            <input type="text" class="form-control form-control-sm" id="noticiaLegendaImagem" name="noticiaLegendaImagem">
+                        </div>
+                        <div class="form-actions text-right border-top pt-3 mt-1">
+                            <button type="submit" class="btn btn-primary btn-sm mr-2">Salvar Notícia</button>
+                            <button type="button" id="btnCancelarNoticia" class="btn btn-secondary btn-sm">Cancelar</button>
+                        </div>
+                    </form>
+                    <div class="list-container">
+                        <p id="noticiasPlaceholderMsg" class="placeholder-msg text-muted text-center p-3" style="display: block;">Nenhuma notícia cadastrada ainda.</p>
+                        <div id="listaNoticiasItens">
+                        </div>
+                    </div>
                 </section>
 
                 <section id="secaoParceiros" class="content-section">
@@ -118,7 +157,6 @@
                             <i class="fas fa-plus mr-1"></i> Novo Parceiro
                         </button>
                     </div>
-
                     <form id="formNovoParceiro" class="dynamic-form hidden card card-body mb-4 p-3">
                         <h3 class="h5 mb-3">Cadastrar Novo Parceiro</h3>
                         <div class="form-group">
@@ -127,29 +165,26 @@
                         </div>
                         <div class="form-group">
                             <label for="parceiroSite">Link do Site:</label>
-                            <input type="url" class="form-control form-control-sm" id="parceiroSite" name="parceiroSite" placeholder="https://www.exemplo.com">
+                            <input type="url" class="form-control form-control-sm" id="parceiroSite" name="parceiroSite" placeholder="https://www.exemplo.com" required>
                         </div>
                         <div class="form-actions text-right border-top pt-3 mt-1">
-                            <button type="button" id="btnCancelarParceiro" class="btn btn-secondary btn-sm mr-2">Cancelar</button>
-                            <button type="submit" class="btn btn-primary btn-sm">Salvar Parceiro</button>
+                            <button type="submit" class="btn btn-primary btn-sm mr-2">Salvar Parceiro</button>
+                            <button type="button" id="btnCancelarParceiro" class="btn btn-secondary btn-sm">Cancelar</button>
                         </div>
                     </form>
-
                     <div class="list-container">
                         <p id="parceirosPlaceholderMsg" class="placeholder-msg text-muted text-center p-3" style="display: block;">Nenhum parceiro cadastrado ainda.</p>
-                        <div id="listaParceirosItens">
-                            </div>
+                        <div id="listaParceirosItens"></div>
                     </div>
                 </section>
 
                 <section id="secaoProjetos" class="content-section">
-                    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+                     <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
                         <h2 class="h4 mb-0">Projetos</h2>
                         <button type="button" id="btnNovoProjeto" class="btn btn-success btn-sm">
                             <i class="fas fa-plus mr-1"></i> Novo Projeto
                         </button>
                     </div>
-
                     <form id="formNovoProjeto" class="dynamic-form hidden card card-body mb-4 p-3">
                         <h3 class="h5 mb-3">Cadastrar Novo Projeto</h3>
                         <div class="form-group">
@@ -160,37 +195,33 @@
                             <label for="projetoDescricao">Descrição do Projeto:</label>
                             <textarea class="form-control form-control-sm" id="projetoDescricao" name="projetoDescricao" rows="3" required></textarea>
                         </div>
-                        
                         <div class="form-group">
                             <label>Atribuir Colaboradores ao Projeto:</label>
                             <div id="projetoColaboradoresSelecao" class="border rounded p-2 bg-white" style="max-height: 150px; overflow-y: auto;">
                                 <small class="text-muted">Nenhum colaborador disponível ou carregando...</small>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label>Atribuir Parceiros ao Projeto:</label>
                             <div id="projetoParceirosSelecao" class="border rounded p-2 bg-white" style="max-height: 150px; overflow-y: auto;">
                                 <small class="text-muted">Nenhum parceiro disponível ou carregando...</small>
                             </div>
                         </div>
-
                         <div class="form-actions text-right border-top pt-3 mt-1">
-                            <button type="button" id="btnCancelarProjeto" class="btn btn-secondary btn-sm mr-2">Cancelar</button>
-                            <button type="submit" class="btn btn-primary btn-sm">Salvar Projeto</button>
+                            <button type="submit" class="btn btn-primary btn-sm mr-2">Salvar Projeto</button>
+                            <button type="button" id="btnCancelarProjeto" class="btn btn-secondary btn-sm">Cancelar</button>
                         </div>
                     </form>
-
                     <div class="list-container">
                         <p id="projetosPlaceholderMsg" class="placeholder-msg text-muted text-center p-3" style="display: block;">Nenhum projeto cadastrado ainda.</p>
-                        <div id="listaProjetosItens">
-                            </div>
+                        <div id="listaProjetosItens"></div>
                     </div>
                 </section>
 
                 <section id="secaoSite" class="content-section">
                     <h2 class="h4">Site</h2>
-                    <p>Conteúdo da seção Site...</p>
+                    <p>Esta seção do painel administrativo era usada para configurar aspectos do site. Agora, o link "Site" no menu leva diretamente para o site principal.</p>
+                    <p>Se precisar de configurações específicas para o site que devem ser gerenciadas aqui, esta seção pode ser reativada ou adaptada.</p>
                 </section>
             </main>
         </div>
@@ -202,5 +233,6 @@
     <script src="js/colaboradores.js" defer></script>
     <script src="js/parceiros.js" defer></script>
     <script src="js/projetos.js" defer></script> 
+    <script src="js/noticias.js" defer></script>
     </body>
 </html>
