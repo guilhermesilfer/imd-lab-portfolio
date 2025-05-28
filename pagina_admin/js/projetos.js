@@ -144,7 +144,6 @@
             itemDiv.dataset.colaboradoresAtribuidos = JSON.stringify(projetoData.colaboradoresAtribuidos || []);
             itemDiv.dataset.parceirosAtribuidos = JSON.stringify(projetoData.parceirosAtribuidos || []);
 
-
             const summaryDiv = document.createElement('div');
             summaryDiv.classList.add('projeto-summary', 'card-header', 'bg-light', 'd-flex', 'justify-content-between', 'align-items-center');
             
@@ -222,7 +221,7 @@
                 id: 'proj_inicial_1',
                 projetoTitulo: "AgroConecta: Monitoramento Inteligente",
                 projetoDescricao: "Desenvolvimento de um sistema de baixo custo baseado em IoT (Internet das Coisas) com sensores de umidade do solo, temperatura e luminosidade para otimizar o uso de recursos hídricos e insumos na agricultura familiar.\nO projeto visa aumentar a produtividade e sustentabilidade de pequenas propriedades rurais através de dados em tempo real e alertas inteligentes.",
-                colaboradoresAtribuidos: ['colab_inicial_1'],
+                colaboradoresAtribuidos: ['colab_inicial_1', 'colab_inicial_2'], 
                 parceirosAtribuidos: ['parc_inicial_1'] 
             },
             {
@@ -230,13 +229,13 @@
                 projetoTitulo: "Diagnóstico Assistido por IA",
                 projetoDescricao: "Criação de um modelo de inteligência artificial capaz de auxiliar profissionais da saúde na detecção precoce de anomalias em exames de imagem médica (ex: radiografias, tomografias).\nO foco é em desenvolver algoritmos de aprendizado de máquina que identifiquem padrões sutis, agilizando o processo de triagem e melhorando a acurácia diagnóstica.",
                 colaboradoresAtribuidos: ['colab_inicial_2', 'colab_inicial_3'],
-                parceirosAtribuidos: []
+                parceirosAtribuidos: ['parc_inicial_2'] 
             },
             {
                 id: 'proj_inicial_3',
                 projetoTitulo: "ImmersiEdu: Plataforma VR",
                 projetoDescricao: "Construção de uma plataforma educacional utilizando Realidade Virtual (VR) para simular ambientes e experimentos complexos, como laboratórios de química, explorações históricas ou procedimentos técnicos.\nO objetivo é oferecer uma experiência de aprendizado mais engajadora, prática e acessível para estudantes de diferentes níveis.",
-                colaboradoresAtribuidos: [],
+                colaboradoresAtribuidos: ['colab_inicial_1', 'colab_inicial_3'], 
                 parceirosAtribuidos: ['parc_inicial_2', 'parc_inicial_3']
             }
         ];
@@ -278,29 +277,44 @@
                 event.preventDefault();
                 const formData = new FormData(formNovoProjeto);
                 
-                const checkboxesColab = projetoColaboradoresSelecaoDiv.querySelectorAll('.form-check-input:checked');
-                const selectedColabIds = Array.from(checkboxesColab).map(cb => cb.value);
+                const projetoTitulo = formData.get('projetoTitulo');
+                const projetoDescricao = formData.get('projetoDescricao');
 
-                const checkboxesParc = projetoParceirosSelecaoDiv.querySelectorAll('.form-check-input:checked');
-                const selectedParceiroIds = Array.from(checkboxesParc).map(cb => cb.value);
-
-                let dadosProjeto = {
-                    projetoTitulo: formData.get('projetoTitulo'),
-                    projetoDescricao: formData.get('projetoDescricao'),
-                    colaboradoresAtribuidos: selectedColabIds,
-                    parceirosAtribuidos: selectedParceiroIds
-                };
-
-                if (!dadosProjeto.projetoTitulo || dadosProjeto.projetoTitulo.trim() === "") {
+                if (!projetoTitulo || projetoTitulo.trim() === "") {
                     alert('O título do projeto não pode estar vazio.');
                     formNovoProjeto.querySelector('#projetoTitulo')?.focus();
                     return;
                 }
-                if (!dadosProjeto.projetoDescricao || dadosProjeto.projetoDescricao.trim() === "") {
+                if (!projetoDescricao || projetoDescricao.trim() === "") {
                    alert('A descrição do projeto não pode estar vazia.');
                    formNovoProjeto.querySelector('#projetoDescricao')?.focus();
                    return;
                 }
+
+                const checkboxesColab = projetoColaboradoresSelecaoDiv.querySelectorAll('.form-check-input:checked');
+                const selectedColabIds = Array.from(checkboxesColab).map(cb => cb.value);
+                
+                const checkboxesParc = projetoParceirosSelecaoDiv.querySelectorAll('.form-check-input:checked');
+                const selectedParceiroIds = Array.from(checkboxesParc).map(cb => cb.value);
+
+                if (selectedColabIds.length === 0) {
+                    alert('É obrigatório atribuir pelo menos um colaborador ao projeto.');
+                    projetoColaboradoresSelecaoDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
+
+                if (selectedParceiroIds.length === 0) {
+                    alert('É obrigatório atribuir pelo menos um parceiro ao projeto.');
+                    projetoParceirosSelecaoDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
+
+                let dadosProjeto = {
+                    projetoTitulo: projetoTitulo,
+                    projetoDescricao: projetoDescricao,
+                    colaboradoresAtribuidos: selectedColabIds,
+                    parceirosAtribuidos: selectedParceiroIds
+                };
 
                 if (currentEditingProjetoId) { 
                     const itemToUpdate = listaProjetosContainer.querySelector(`.projeto-item[data-id="${currentEditingProjetoId}"]`);
@@ -312,7 +326,7 @@
                         
                         itemToUpdate.querySelector('.projeto-titulo-display').textContent = dadosProjeto.projetoTitulo;
                         
-                        const newDetailsContent = createProjetoElement(dadosProjeto).querySelector('.projeto-details').innerHTML;
+                        const newDetailsContent = createProjetoElement({...dadosProjeto, id: currentEditingProjetoId}).querySelector('.projeto-details').innerHTML;
                         const detailsDivTarget = itemToUpdate.querySelector('.projeto-details');
                         if(detailsDivTarget) detailsDivTarget.innerHTML = newDetailsContent;
 

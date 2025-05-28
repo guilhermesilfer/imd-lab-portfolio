@@ -1,4 +1,3 @@
-// js/colaboradores.js
 (function() {
     document.addEventListener('DOMContentLoaded', function() {
         const secaoColaboradores = document.getElementById('secaoColaboradores');
@@ -15,7 +14,7 @@
         let currentEditingColaboradorId = null;
         const originalFormTitle = formColabTitle.textContent;
         const originalSubmitButtonText = formColabSubmitButton.textContent;
-        const imagemDefaultReal = 'img/JEAN_IMD_PERFIL.jpg'; // Você pode alterar para um placeholder genérico se preferir
+        const imagemDefaultReal = 'img/JEAN_IMD_PERFIL.jpg'; 
 
         function updateColabPlaceholderVisibility() { 
             if (listaColaboradoresContainer && placeholderMsgColab) {
@@ -37,12 +36,6 @@
             const itemDiv = document.createElement('div');
             itemDiv.classList.add('colaborador-item', 'card', 'mb-3');
             
-            // Se colabData.imagemRealEspecifica existir (vindo dos dados iniciais), usa ela.
-            // Senão, se o usuário forneceu uma colabImagem (referência), tenta usar 'img/' + colabData.colabImagem.
-            // Se nada disso, usa imagemDefaultReal.
-            // IMPORTANTE: Esta lógica para imagemReal pode precisar de ajuste se colabImagem não for um nome de arquivo direto.
-            // Por agora, vamos simplificar: se há imagemRealEspecifica, usa. Senão, default.
-            // A referência de imagem textual do formulário (colabData.colabImagem) é mais para informação.
             const imagemParaEsteColaborador = colabData.imagemRealEspecifica || imagemDefaultReal;
 
 
@@ -52,8 +45,8 @@
             itemDiv.dataset.formacao = colabData.colabFormacao || '';
             itemDiv.dataset.linkedin = colabData.colabLinkedin || '';
             itemDiv.dataset.email = colabData.colabEmail || '';
-            itemDiv.dataset.imagemSolicitada = colabData.colabImagem || ''; // O que foi digitado no form
-            itemDiv.dataset.imagemReal = imagemParaEsteColaborador; // O que será exibido
+            itemDiv.dataset.imagemSolicitada = colabData.colabImagem || ''; 
+            itemDiv.dataset.imagemReal = imagemParaEsteColaborador; 
             itemDiv.dataset.descricao = colabData.colabDescricao || '';
 
             const summaryDiv = document.createElement('div');
@@ -88,12 +81,12 @@
             const nomeColab = colabData.colabNome || 'N/A';
             const cargoColab = colabData.colabCargo || 'N/A';
             const formacaoColab = colabData.colabFormacao || 'N/A';
-            const linkedinHref = formatLink(colabData.colabLinkedin); // utils.js
+            const linkedinHref = formatLink(colabData.colabLinkedin); 
             const linkedinLinkHTML = linkedinHref ? `<a href="${linkedinHref}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm mr-2"><i class="fab fa-linkedin"></i> LinkedIn</a>` : '';
             const emailColab = colabData.colabEmail || '';
             const emailLinkHTML = emailColab ? `<a href="mailto:${emailColab}" class="btn btn-outline-secondary btn-sm"><i class="fas fa-envelope"></i> Email</a>` : '';
-            const refImgColab = colabData.colabImagem || 'N/A'; // O que foi digitado no form
-            const imgSrc = itemDiv.dataset.imagemReal; // O que efetivamente será mostrado
+            const refImgColab = colabData.colabImagem || 'N/A'; 
+            const imgSrc = itemDiv.dataset.imagemReal; 
             const descColab = colabData.colabDescricao ? colabData.colabDescricao.replace(/\n/g, '<br>') : 'N/A';
 
             detailsDiv.innerHTML = `
@@ -159,13 +152,11 @@
                 let dadosColaborador = {};
                 formData.forEach((value, key) => { dadosColaborador[key] = value; });
 
-                // Validação dos campos obrigatórios
                 if (!dadosColaborador.colabNome || dadosColaborador.colabNome.trim() === "") {
                     alert('O nome do colaborador não pode estar vazio.');
                     formNovoColaborador.querySelector('#colabNome').focus();
                     return;
                 }
-                // MODIFICAÇÃO: Adicionada validação para o cargo
                 if (!dadosColaborador.colabCargo || dadosColaborador.colabCargo.trim() === "") {
                     alert('O cargo do colaborador não pode estar vazio.');
                     formNovoColaborador.querySelector('#colabCargo').focus();
@@ -182,13 +173,11 @@
                         itemToUpdate.dataset.email = dadosColaborador.colabEmail;
                         itemToUpdate.dataset.imagemSolicitada = dadosColaborador.colabImagem;
                         itemToUpdate.dataset.descricao = dadosColaborador.colabDescricao;
-                        // imagemReal não é alterada via formulário diretamente aqui, é mais para dados iniciais ou lógica futura
                         
                         itemToUpdate.querySelector('.colaborador-nome-display').textContent = dadosColaborador.colabNome;
                         
-                        // Recria os detalhes para refletir todas as mudanças
-                        const newColabDataFromDataset = { ...itemToUpdate.dataset }; // Pega todos os datasets
-                        newColabDataFromDataset.colabNome = itemToUpdate.dataset.nome; // Garante que está usando o nome do dataset
+                        const newColabDataFromDataset = { ...itemToUpdate.dataset }; 
+                        newColabDataFromDataset.colabNome = itemToUpdate.dataset.nome; 
                         
                         const newDetailsContent = createCollaboratorElement(newColabDataFromDataset).querySelector('.colaborador-details').innerHTML;
                         const detailsDivTarget = itemToUpdate.querySelector('.colaborador-details');
@@ -198,8 +187,6 @@
                     }
                 } else {
                     dadosColaborador.id = Date.now().toString();
-                    // Para novos colaboradores, imagemReal será o default, a menos que uma lógica mais complexa seja adicionada
-                    // para buscar imagemRealEspecifica baseada na imagemSolicitada, o que não é o caso agora.
                     const novoColaboradorElement = createCollaboratorElement(dadosColaborador);
                     listaColaboradoresContainer.appendChild(novoColaboradorElement);
                     alert('Colaborador "' + dadosColaborador.colabNome + '" salvo e adicionado à lista!');
@@ -244,7 +231,7 @@
                     if (detailsDiv) {
                         const isHidden = detailsDiv.classList.toggle('hidden');
                         targetButton.innerHTML = isHidden ? '<i class="fas fa-chevron-down"></i> Expandir' : '<i class="fas fa-chevron-up"></i> Ocultar';
-                        colaboradorItem.classList.toggle('details-visible'); // details-visible não está no CSS, mas pode ser útil
+                        colaboradorItem.classList.toggle('details-visible'); 
                     }
                 }
             });

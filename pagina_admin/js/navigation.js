@@ -1,4 +1,3 @@
-// js/navigation.js
 (function() {
     document.addEventListener('DOMContentLoaded', function() {
         const menuLinks = document.querySelectorAll('#main-menu a:not(.special-action-link)');
@@ -38,12 +37,9 @@
                 event.preventDefault();
                 const sectionIdToShow = this.dataset.section;
 
-                // Verifica se o link clicado é o mesmo que já está ativo
                 if (this === activeMenuLink) {
-                    // Se for o mesmo, oculta a seção e reseta o estado do menu
                     setInitialViewState();
                 } else {
-                    // Se for um link diferente, ou nenhum estava ativo, abre a nova seção
                     bodyElement.classList.remove('initial-view'); 
                     contentSections.forEach(section => section.classList.remove('active'));
                     
@@ -57,8 +53,6 @@
                         this.classList.add('active'); 
                         activeMenuLink = this;
                     } else {
-                        // Se a seção correspondente ao link não for encontrada,
-                        // também volta para o estado inicial para evitar um estado inconsistente.
                         setInitialViewState(); 
                     }
                 }

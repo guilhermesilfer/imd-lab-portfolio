@@ -1,4 +1,3 @@
-// pagina_admin/js/noticias.js
 (function() {
     document.addEventListener('DOMContentLoaded', function() {
         const secaoNoticias = document.getElementById('secaoNoticias');
@@ -146,20 +145,17 @@
             const descNoticia = noticiaData.noticiaDescricao ? noticiaData.noticiaDescricao.replace(/\n/g, '<br>') : 'N/A';
             const projetoVinculadoNome = getProjetoTituloById(noticiaData.noticiaProjetoVinculado);
             
-            // Lógica para determinar a imagem a ser exibida e sua legenda
             let imagemParaExibir = null;
-            if (noticiaData.imagemPath) { // Prioridade para imagemPath (notícias iniciais com imagem específica)
+            if (noticiaData.imagemPath) { 
                 imagemParaExibir = noticiaData.imagemPath;
             } else if (noticiaData.noticiaImagemRef && noticiaData.noticiaImagemRef.trim() !== "") { 
-                // Se não há imagemPath, mas o usuário digitou uma referência no formulário para uma nova notícia
                 imagemParaExibir = imagemFallbackNoticia; 
             }
-            // Se imagemParaExibir ainda for null (noticiaImagemRef estava vazia), nenhuma imagem será mostrada.
 
             const legendaImg = noticiaData.noticiaLegendaImagem || (imagemParaExibir ? 'Imagem da notícia' : '');
 
             let imagemHtml = '';
-            let detalhesColClass = 'col-md-12'; // Detalhes ocupam toda a largura se não houver imagem
+            let detalhesColClass = 'col-md-12'; 
 
             if (imagemParaExibir) {
                 imagemHtml = `
@@ -168,7 +164,7 @@
                         ${noticiaData.noticiaLegendaImagem ? `<p class="text-muted small">${noticiaData.noticiaLegendaImagem}</p>` : ''}
                     </div>
                 `;
-                detalhesColClass = 'col-md-8'; // Detalhes ocupam o restante se houver imagem
+                detalhesColClass = 'col-md-8'; 
             }
 
             detailsDiv.innerHTML = `
@@ -251,8 +247,6 @@
             event.preventDefault();
             const formData = new FormData(formNovaNoticia);
             let dadosNoticia = {
-                // imagemPath não é preenchido pelo formulário para novas notícias,
-                // será tratado por createNoticiaElement com base em noticiaImagemRef
                 imagemPath: '' 
             };
             formData.forEach((value, key) => { dadosNoticia[key] = value; });
@@ -290,8 +284,6 @@
             if (currentEditingNoticiaId) {
                 const itemToUpdate = listaNoticiasContainer.querySelector(`.noticia-item[data-id="${currentEditingNoticiaId}"]`);
                 if (itemToUpdate) {
-                    // Ao editar, se era uma notícia inicial com imagemPath, preserva-o.
-                    // Se era uma notícia criada via form, dataset.imagemPath estará vazio.
                     dadosNoticia.imagemPath = itemToUpdate.dataset.imagemPath || ''; 
 
                     itemToUpdate.dataset.nome = dadosNoticia.noticiaNome;
@@ -300,12 +292,9 @@
                     itemToUpdate.dataset.projetoVinculadoId = dadosNoticia.noticiaProjetoVinculado;
                     itemToUpdate.dataset.imagemRef = dadosNoticia.noticiaImagemRef;
                     itemToUpdate.dataset.legendaImagem = dadosNoticia.noticiaLegendaImagem;
-                    // itemToUpdate.dataset.imagemPath é intencionalmente não sobrescrito aqui se já existia (ex: notícia inicial)
-                    // e se não existia, permanece vazio, para a lógica em createNoticiaElement funcionar.
                     
                     itemToUpdate.querySelector('.noticia-nome-display').textContent = dadosNoticia.noticiaNome;
                     
-                    // Para atualizar os detalhes corretamente, pegamos os dados do dataset atualizado do item
                     const newNoticiaDataFromDataset = {
                         id: currentEditingNoticiaId,
                         noticiaNome: itemToUpdate.dataset.nome,
@@ -313,7 +302,7 @@
                         noticiaDescricao: itemToUpdate.dataset.descricao,
                         noticiaProjetoVinculado: itemToUpdate.dataset.projetoVinculadoId,
                         noticiaImagemRef: itemToUpdate.dataset.imagemRef,
-                        imagemPath: itemToUpdate.dataset.imagemPath, // Importante usar o que está no dataset
+                        imagemPath: itemToUpdate.dataset.imagemPath, 
                         noticiaLegendaImagem: itemToUpdate.dataset.legendaImagem
                     };
                     
@@ -325,9 +314,6 @@
                 }
             } else {
                 dadosNoticia.id = `noticia_${Date.now()}`;
-                // Para novas notícias, `dadosNoticia.imagemPath` estará vazio (conforme inicializado).
-                // `createNoticiaElement` usará `imagemFallbackNoticia` se `noticiaImagemRef` estiver preenchido,
-                // ou nenhuma imagem se `noticiaImagemRef` estiver vazio.
                 const novaNoticiaElement = createNoticiaElement(dadosNoticia);
                 listaNoticiasContainer.appendChild(novaNoticiaElement);
                 alert('Notícia "' + dadosNoticia.noticiaNome + '" salva!');

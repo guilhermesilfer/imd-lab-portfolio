@@ -1,4 +1,3 @@
-// js/parceiros.js
 (function() {
     document.addEventListener('DOMContentLoaded', function() {
         const secaoParceiros = document.getElementById('secaoParceiros');
@@ -76,7 +75,7 @@
             
             const nomeParc = parceiroData.parceiroNome || 'N/A';
             const siteParc = parceiroData.parceiroSite || '';
-            const siteLinkHTML = siteParc ? `<a href="${formatLink(siteParc)}" target="_blank" rel="noopener noreferrer">${siteParc}</a>` : 'N/A'; // formatLink de utils.js
+            const siteLinkHTML = siteParc ? `<a href="${formatLink(siteParc)}" target="_blank" rel="noopener noreferrer">${siteParc}</a>` : 'N/A'; 
 
             detailsDiv.innerHTML = `
                 <h6 class="font-weight-bold text-primary">${nomeParc}</h6>
@@ -129,19 +128,16 @@
                     parceiroSite: formData.get('parceiroSite')
                 };
 
-                // Validações
                 if (!dadosParceiro.parceiroNome || dadosParceiro.parceiroNome.trim() === "") {
                     alert('O nome do parceiro não pode estar vazio.');
                     formNovoParceiro.querySelector('#parceiroNome').focus();
                     return;
                 }
-                // MODIFICAÇÃO: Adicionada validação para o site do parceiro
                 if (!dadosParceiro.parceiroSite || dadosParceiro.parceiroSite.trim() === "") {
                     alert('O link do site do parceiro não pode estar vazio.');
                     formNovoParceiro.querySelector('#parceiroSite').focus();
                     return;
                 }
-                // Fim Validações
 
                 if (currentEditingParceiroId) {
                     const itemToUpdate = listaParceirosContainer.querySelector(`.parceiro-item[data-id="${currentEditingParceiroId}"]`);
