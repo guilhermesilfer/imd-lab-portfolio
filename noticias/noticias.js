@@ -7,31 +7,31 @@ const projetos = [
         imagem: "robotics_class2.jpg",
         titulo: "Publicação Internacional",
         texto: "Nosso artigo foi aceito na conferência XYZ sobre IA aplicada.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "IA em Jogos",
         texto: "Como a IA pode ser aplicada em jogos.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "Publicação Internacional",
         texto: "Nosso artigo foi aceito na conferência XYZ sobre IA aplicada.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "IA em Jogos",
         texto: "Como a IA pode ser aplicada em jogos.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "Nova Notícia",
         texto: "Nova notícia sobre nosso projeto.",
-        link: "#"
+        link: "../noticia.html"
       }
     ]
   },
@@ -42,37 +42,37 @@ const projetos = [
         imagem: "robotics_class2.jpg",
         titulo: "Workshop",
         texto: "Estaremos presentes no workshop X no centro de convenções.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "Publicação Técnica",
         texto: "Artigo sobre protocolos publicado na conferência ABC.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "Oportunidade de Estágio",
         texto: "Abrem 5 novas vagas para o nosso projeto.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "Workshop",
         texto: "Estaremos presentes no workshop X no centro de convenções.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "Publicação Técnica",
         texto: "Artigo sobre protocolos publicado na conferência ABC.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "Oportunidade de Estágio",
         texto: "Abrem 5 novas vagas para o nosso projeto.",
-        link: "#"
+        link: "../noticia.html"
       }
     ]
   },
@@ -83,31 +83,31 @@ const projetos = [
         imagem: "robotics_class2.jpg",
         titulo: "Publicação Internacional",
         texto: "Nosso artigo foi aceito na conferência XYZ sobre IA aplicada.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "IA em Jogos",
         texto: "Como a IA pode ser aplicada em jogos.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "Publicação Internacional",
         texto: "Nosso artigo foi aceito na conferência XYZ sobre IA aplicada.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "IA em Jogos",
         texto: "Como a IA pode ser aplicada em jogos.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "Nova Notícia",
         texto: "Nova notícia sobre nosso projeto.",
-        link: "#"
+        link: "../noticia.html"
       }
     ]
   },
@@ -118,37 +118,37 @@ const projetos = [
         imagem: "robotics_class2.jpg",
         titulo: "Workshop",
         texto: "Estaremos presentes no workshop X no centro de convenções.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "Publicação Técnica",
         texto: "Artigo sobre protocolos publicado na conferência ABC.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "Oportunidade de Estágio",
         texto: "Abrem 5 novas vagas para o nosso projeto.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "Workshop",
         texto: "Estaremos presentes no workshop X no centro de convenções.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "Publicação Técnica",
         texto: "Artigo sobre protocolos publicado na conferência ABC.",
-        link: "#"
+        link: "../noticia.html"
       },
       {
         imagem: "robotics_class2.jpg",
         titulo: "Oportunidade de Estágio",
         texto: "Abrem 5 novas vagas para o nosso projeto.",
-        link: "#"
+        link: "../noticia.html"
       }
     ]
   },
