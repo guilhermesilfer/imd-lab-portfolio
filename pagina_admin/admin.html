@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="login-modal-overlay">
+        <div id="login-modal">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Usuário:</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <p id="login-error-message" class="login-error-message" style="display: none;"></p>
+                <p class="forgot-password">
+                    <a href="#" id="forgot-password-link">Esqueceu sua senha?</a>
+                </p>
+                <button type="button" id="login-button" class="btn btn-primary btn-block">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="row row-main-layout"> 
+            <aside id="principal" class="col-lg-3 mb-4 mb-lg-0">
+                <div class="p-3 bg-white rounded shadow-sm text-center sticky-sidebar">
+                    <img src="img/matheus.jpg" alt="Foto de Matheus Guedes" id="profile-image">
+                    <h2 id="person-name" class="h5 mt-2 mb-3">Matheus Guedes</h2>
+                    <nav id="main-menu">
+                        <ul class="nav flex-column nav-pills">
+                            <li class="nav-item"><a href="#" class="nav-link" data-section="secaoColaboradores"><i class="fas fa-users mr-2"></i>Colaboradores</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-section="secaoNoticias"><i class="fas fa-newspaper mr-2"></i>Noticias</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-section="secaoParceiros"><i class="fas fa-handshake mr-2"></i>Parceiros</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-section="secaoProjetos"><i class="fas fa-project-diagram mr-2"></i>Projetos</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-section="secaoSite"><i class="fas fa-globe mr-2"></i>Site</a></li>
+                            <li class="nav-item mt-3"><a href="#" id="logout-button" class="nav-link special-action-link btn btn-danger btn-sm text-white w-100"><i class="fas fa-sign-out-alt mr-2"></i>Sair</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+
+            <main id="conteudo-dinamico" class="col-lg-9">
+                <section id="secaoColaboradores" class="content-section">
+                    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+                        <h2 class="h4 mb-0">Colaboradores</h2>
+                        <button type="button" id="btnNovoColaborador" class="btn btn-success btn-sm">
+                            <i class="fas fa-plus mr-1"></i> Novo Colaborador
+                        </button>
+                    </div>
+
+                    <form id="formNovoColaborador" class="dynamic-form hidden card card-body mb-4 p-3">
+                        <h3 class="h5 mb-3">Cadastrar Novo Colaborador</h3>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="colabNome">Nome:</label>
+                                <input type="text" class="form-control form-control-sm" id="colabNome" name="colabNome" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="colabCargo">Cargo:</label>
+                                <input type="text" class="form-control form-control-sm" id="colabCargo" name="colabCargo" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="colabFormacao">Formação:</label>
+                            <input type="text" class="form-control form-control-sm" id="colabFormacao" name="colabFormacao">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="colabLinkedin">Link do Linkedin:</label>
+                                <input type="url" class="form-control form-control-sm" id="colabLinkedin" name="colabLinkedin" placeholder="https://linkedin.com/in/seu-perfil">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="colabEmail">Email:</label>
+                                <input type="email" class="form-control form-control-sm" id="colabEmail" name="colabEmail">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="colabImagem">Imagem (referência textual):</label>
+                            <input type="text" class="form-control form-control-sm" id="colabImagem" name="colabImagem" placeholder="Ex: minha_foto_principal.jpg">
+                        </div>
+                        <div class="form-group">
+                            <label for="colabDescricao">Descrição:</label>
+                            <textarea class="form-control form-control-sm" id="colabDescricao" name="colabDescricao" rows="3"></textarea>
+                        </div>
+                        <div class="form-actions text-right border-top pt-3 mt-1">
+                            <button type="button" id="btnCancelarColaborador" class="btn btn-secondary btn-sm mr-2">Cancelar</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Salvar Colaborador</button>
+                        </div>
+                    </form>
+
+                    <div class="list-container">
+                        <p id="colaboradoresPlaceholderMsg" class="placeholder-msg text-muted text-center p-3" style="display: block;">Nenhum colaborador cadastrado ainda.</p>
+                        <div id="listaColaboradoresItens">
+                            </div>
+                    </div>
+                </section>
+
+                <section id="secaoNoticias" class="content-section">
+                    <h2 class="h4">Noticias</h2>
+                    <p>Conteúdo da seção Noticias...</p>
+                </section>
+
+                <section id="secaoParceiros" class="content-section">
+                    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+                        <h2 class="h4 mb-0">Parceiros</h2>
+                        <button type="button" id="btnNovoParceiro" class="btn btn-success btn-sm">
+                            <i class="fas fa-plus mr-1"></i> Novo Parceiro
+                        </button>
+                    </div>
+
+                    <form id="formNovoParceiro" class="dynamic-form hidden card card-body mb-4 p-3">
+                        <h3 class="h5 mb-3">Cadastrar Novo Parceiro</h3>
+                        <div class="form-group">
+                            <label for="parceiroNome">Nome do Parceiro:</label>
+                            <input type="text" class="form-control form-control-sm" id="parceiroNome" name="parceiroNome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="parceiroSite">Link do Site:</label>
+                            <input type="url" class="form-control form-control-sm" id="parceiroSite" name="parceiroSite" placeholder="https://www.exemplo.com">
+                        </div>
+                        <div class="form-actions text-right border-top pt-3 mt-1">
+                            <button type="button" id="btnCancelarParceiro" class="btn btn-secondary btn-sm mr-2">Cancelar</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Salvar Parceiro</button>
+                        </div>
+                    </form>
+
+                    <div class="list-container">
+                        <p id="parceirosPlaceholderMsg" class="placeholder-msg text-muted text-center p-3" style="display: block;">Nenhum parceiro cadastrado ainda.</p>
+                        <div id="listaParceirosItens">
+                            </div>
+                    </div>
+                </section>
+
+                <section id="secaoProjetos" class="content-section">
+                    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+                        <h2 class="h4 mb-0">Projetos</h2>
+                        <button type="button" id="btnNovoProjeto" class="btn btn-success btn-sm">
+                            <i class="fas fa-plus mr-1"></i> Novo Projeto
+                        </button>
+                    </div>
+
+                    <form id="formNovoProjeto" class="dynamic-form hidden card card-body mb-4 p-3">
+                        <h3 class="h5 mb-3">Cadastrar Novo Projeto</h3>
+                        <div class="form-group">
+                            <label for="projetoTitulo">Título do Projeto:</label>
+                            <input type="text" class="form-control form-control-sm" id="projetoTitulo" name="projetoTitulo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="projetoDescricao">Descrição do Projeto:</label>
+                            <textarea class="form-control form-control-sm" id="projetoDescricao" name="projetoDescricao" rows="3" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Atribuir Colaboradores ao Projeto:</label>
+                            <div id="projetoColaboradoresSelecao" class="border rounded p-2 bg-white" style="max-height: 150px; overflow-y: auto;">
+                                <small class="text-muted">Nenhum colaborador disponível ou carregando...</small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Atribuir Parceiros ao Projeto:</label>
+                            <div id="projetoParceirosSelecao" class="border rounded p-2 bg-white" style="max-height: 150px; overflow-y: auto;">
+                                <small class="text-muted">Nenhum parceiro disponível ou carregando...</small>
+                            </div>
+                        </div>
+
+                        <div class="form-actions text-right border-top pt-3 mt-1">
+                            <button type="button" id="btnCancelarProjeto" class="btn btn-secondary btn-sm mr-2">Cancelar</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Salvar Projeto</button>
+                        </div>
+                    </form>
+
+                    <div class="list-container">
+                        <p id="projetosPlaceholderMsg" class="placeholder-msg text-muted text-center p-3" style="display: block;">Nenhum projeto cadastrado ainda.</p>
+                        <div id="listaProjetosItens">
+                            </div>
+                    </div>
+                </section>
+
+                <section id="secaoSite" class="content-section">
+                    <h2 class="h4">Site</h2>
+                    <p>Conteúdo da seção Site...</p>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/utils.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/colaboradores.js" defer></script>
+    <script src="js/parceiros.js" defer></script>
+    <script src="js/projetos.js" defer></script> 
+    </body>
+</html>
