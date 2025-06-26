@@ -1,0 +1,40 @@
+.noticias-scroll {
+  display: flex;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.noticia-card {
+  flex: 0 0 auto;
+  width: 300px;
+  margin-left: 16px;
+  scroll-snap-align: start;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+}
+
+.scroll-btn {
+  position: left;
+  height: 100%;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  background-color: white;
+  border: full;
+  border-width: 2px;
+  border-color: #DDD;
+  font-size: 2rem;
+  opacity: 1;
+}
+
+.scroll-btn:hover {
+  opacity: 1;
+}
+
+.scroll-btn.start {
+  left: -15px;
+}
+
+.scroll-btn.end {
+  right: -15px;
+}

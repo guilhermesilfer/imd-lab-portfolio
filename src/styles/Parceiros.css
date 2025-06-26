@@ -1,0 +1,58 @@
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.secao-baloes {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+.secao-baloes h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.secao-baloes h2 {
+    font-size: 1.2em;
+    color: #777;
+    font-weight: normal;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+.area-baloes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 0 5%;
+}
+.balao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    background-color: #f0f0f0;
+    color: #333; 
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease; 
+} 
+.balao:hover {
+    background-color: #ddd;
+}
+.balao span {
+    text-align: center;
+}
